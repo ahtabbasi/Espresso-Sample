@@ -1,9 +1,7 @@
 name: Smoke Tests
 
 on:
-  push:
-    branches:
-      - pipeline
+  push
 
 jobs:
   build-and-test:
