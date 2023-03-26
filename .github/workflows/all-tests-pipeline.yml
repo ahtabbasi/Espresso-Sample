@@ -1,0 +1,33 @@
+name: All Tests
+
+on:
+  pull_request
+
+jobs:
+  build-and-test:
+    runs-on: macos-latest
+
+    steps:
+      - name: Setup Java
+        uses: actions/setup-java@v2
+        with:
+          java-version: '11'
+          distribution: 'adopt'
+
+      - name: Setup Android SDK
+        uses: android-actions/setup-android@v2
+
+      - name: Checkout Repo
+        uses: actions/checkout@v3
+
+      - name: Build with Gradle
+        run: ./gradlew assembleDebug
+
+      - name: Run smoke UI test via Gradle Virtual Devices
+        run: ./gradlew pixel2api29DebugAndroidTest -Pandroid.experimental.androidTest.useUnifiedTestPlatform=true -Pandroid.testoptions.manageddevices.emulator.gpu=swiftshader_indirect
+
+      - name: Upload Test Results
+        uses: actions/upload-artifact@v3
+        with:
+          name: test-results
+          path: app/build/reports/androidTests/managedDevice/allDevices
