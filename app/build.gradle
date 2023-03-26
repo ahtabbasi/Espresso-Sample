@@ -23,6 +23,7 @@ android {
     testOptions {
         animationsDisabled = true
     }
+    namespace 'com.abnamro.apps.referenceandroid'
 }
 
 dependencies {
