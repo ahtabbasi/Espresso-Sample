@@ -1,3 +1,5 @@
+import com.android.build.api.dsl.ManagedVirtualDevice
+
 apply plugin: 'com.android.application'
 
 apply plugin: 'kotlin-android'
@@ -22,7 +24,15 @@ android {
     }
     testOptions {
         animationsDisabled = true
+        devices {
+            pixel2api29(ManagedVirtualDevice) {
+                device = "Pixel 2"
+                apiLevel = 29
+                systemImageSource = "google"
+            }
+        }
     }
+    namespace 'com.abnamro.apps.referenceandroid'
 }
 
 dependencies {
