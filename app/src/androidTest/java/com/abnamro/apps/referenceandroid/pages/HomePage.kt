@@ -10,7 +10,10 @@ import com.abnamro.apps.referenceandroid.util.BasePage
 import org.hamcrest.Matcher
 import org.hamcrest.Matchers as HamcrestMatchers
 
+// ViewMatchers for Home Page
 object HomePage : BasePage() {
+
+    // Data object to help finding page view and verify home page ViewAssertions
     object Data {
         const val TOOLBAR_TEXT = "ReferenceAndroid"
         const val SETTINGS_MENU_TEXT = "Settings"
@@ -18,7 +21,7 @@ object HomePage : BasePage() {
         const val SNACK_BAR_TEXT = "Replace with your own action"
         const val OVERFLOW_MENU_TEXT = "More options"
     }
-
+    // Holds matchers to locate elements at home page
     private object Matchers {
         private const val TOOLBAR_ID = R.id.toolbar
         private const val EMAIL_BUTTON_ID = R.id.fab
@@ -32,7 +35,7 @@ object HomePage : BasePage() {
         val mainScreenText: Matcher<View> = withText(Data.MAIN_SCREEN_TEXT)
     }
 
-
+    // Returns the ViewInteraction for toolbar on HomePage
     fun toolBar(): ViewInteraction {
         return onView(
             HamcrestMatchers.allOf(

@@ -5,6 +5,16 @@ import java.lang.Thread.sleep
 
 object EspressoUtils {
 
+    /*
+     *  Repeatedly checks for view until found else throws exception.
+     *  Allows custom timeout or default timeout
+     *
+     *  @param onView - view that needs to be searched
+     *  @param timeout - Max time to wait for view/ default = 3000/3s.
+     *  @param waitMillisPerTry - wait in milli seconds per try.
+     *
+     *  @return ViewInteraction - returns the view.
+     */
     fun isDisplayedTimeout(
         onView: ViewInteraction,
         timeout: Int = 3000,
