@@ -2,6 +2,8 @@
 This project is a demonstration of instrument tests for UI testing of an Android application. The tests are implemented using Espresso with Kotlin. 
  I learned both Kotlin and [Espresso](https://developer.android.com/training/testing/espresso/recipes#matching-view-inside-action-bar) while implementing this project for the first time.
  
+ https://user-images.githubusercontent.com/25913495/227912977-dea2289c-bdc5-4f57-86c8-086e8ed0fda9.mp4
+ 
 ## Applied Pattern
 I have used the Page Object Model pattern to segregate test code from page-specific code. Robot Pattern and POM pattern were also considered. Both of them are almost alike; in the end, both are used to write `WHAT` in the tests, not `HOW`.
 
